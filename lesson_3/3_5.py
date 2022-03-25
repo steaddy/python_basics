@@ -5,9 +5,15 @@ def sum_from_string(string_with_numbers):
 res = 0
 
 while True:
-    res += sum_from_string(input("Введите числа через пробел: "))
+    quit_cycle = False
+    temp_str = input("Введите числа через пробел (для выхода введите 'q'): ")
+    if 'q' in temp_str:
+        quit_cycle = True
+        temp_str = temp_str.replace('q', '')
+
+    res += sum_from_string(temp_str)
     print(res)
-    i = input("Закончить - q, продолжить - Enter: ")
-    if i == 'q':
+    if quit_cycle:
         break
+
 
